@@ -1,0 +1,6 @@
+var issue = $('#<%= dom_id(@issue) %>');
+var updatedIssue = $('<%= escape_javascript render(@issue) %>');
+
+issue.replaceWith(updatedIssue);
+updatedIssue.find('time.timeago').timeago();
+updatedIssue.find('.has-tooltip').tooltip();

@@ -1,0 +1,9 @@
+en:
+  breadcrumbs:
+    projects:
+      index: Projects
+      new: Create Project
+      edit: Edit Project
+    tasks:
+      new: Create Task
+      edit: Edit Task

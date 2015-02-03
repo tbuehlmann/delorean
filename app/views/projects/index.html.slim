@@ -1,0 +1,26 @@
+.page-header
+  h1 Projects
+
+= link_to 'Create Project', new_project_path, class: 'btn btn-default'
+
+- if @projects.any?
+  table.table.table-hover#projects
+    thead
+      tr
+        th Name
+        th Issues
+        th Created
+        th Updated
+        th Actions
+    tbody
+      - @projects.each do |project|
+        tr
+          td= link_to project.name, project
+          td= project.issues_count
+          td= project.formatted_created_at
+          td= project.formatted_updated_at
+          td
+            = link_to 'Edit', edit_project_path(project), class: 'btn btn-default btn-xs'
+            '
+            = link_to 'Destroy', project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'
+  = paginate @projects

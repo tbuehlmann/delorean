@@ -1,0 +1,27 @@
+.page-header
+  h1.toggle-links
+    .links.pull-right
+      = link_to edit_project_path(@project), class: 'btn btn-default' do
+        = fa_icon('edit lg') + ' Edit'
+
+      = link_to project_path(@project), method: 'delete', class: 'btn btn-danger pull-righ', data: {confirm: 'Are you sure?'} do
+          = fa_icon('trash-o lg') + ' Destroy'
+
+    = @project.name
+
+h3 Issues
+
+p= link_to 'Create Issue', new_project_issue_path(@project), class: 'btn btn-default'
+
+- if @issues.any?
+  table.table.table-hover#issues
+    thead
+      tr
+        th Title
+        th Created
+        th Updated
+        th Status
+        th Actions
+    tbody
+      = render @issues
+  = paginate @issues

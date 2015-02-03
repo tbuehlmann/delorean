@@ -1,0 +1,18 @@
+/*
+ *= require font-awesome
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ */
+
+.links a:not(:last-child) {
+  margin-right: 15px;
+}
+
+#projects, #issues {
+  text-align: center;
+}
+
+.table th {
+  text-align: center;
+}

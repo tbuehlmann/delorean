@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5433
+  pool: 5
+
+development:
+  <<: *default
+  database: delorean_development
+
+test:
+  <<: *default
+  database: delorean_test
+
+production:
+  <<: *default
+  url: <%= ENV['DELOREAN_DATABASE_PASSWORD'] %>
