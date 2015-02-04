@@ -2,8 +2,20 @@ en:
   breadcrumbs:
     projects:
       index: Projects
-      new: Create Project
-      edit: Edit Project
-    tasks:
-      new: Create Task
-      edit: Edit Task
+      create: Create Project
+      update: Update Project
+    issues:
+      index: Issues
+      create: Create Issue
+      update: Update Issue
+    records:
+      index: Work
+      create: Log Work
+      update: Update Work
+  activerecord:
+    models:
+      record: Work
+  helpers:
+      submit:
+        record:
+          create: "Log %{model}"

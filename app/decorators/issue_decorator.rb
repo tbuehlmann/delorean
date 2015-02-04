@@ -10,6 +10,10 @@ class IssueDecorator < Draper::Decorator
     end
   end
 
+  def formatted_worked
+    h.distance_of_time(object.worked.minutes)
+  end
+
   def formatted_created_at
     h.time_ago(object.created_at)
   end

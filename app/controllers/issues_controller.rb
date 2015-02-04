@@ -1,6 +1,7 @@
 class IssuesController < ApplicationController
   before_action :set_project, only: [:new, :create]
-  before_filter :set_issue, only: [:show, :edit, :update, :destroy, :close, :open]
+  before_filter :set_issue, only: [:show, :edit, :update, :destroy]
+  before_filter :set_issue_with_worked, only: [:close, :open]
   before_action :add_breadcrumbs
 
   def new
@@ -24,8 +25,8 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @issue = @issue
-    add_breadcrumb @ssue.title
+    @records = @issue.records.decorate
+    add_breadcrumb @issue.title
   end
 
   def update
@@ -65,23 +66,33 @@ class IssuesController < ApplicationController
     if @issue
       @issue = @issue.decorate
     else
-      redirect_to(root_url, alert: 'Could not find Issue.') unless @issue
+      redirect_to(root_url, alert: 'Could not find Issue.')
+    end
+  end
+
+  def set_issue_with_worked
+    @issue = Issue.with_worked.find_by(id: params[:id])
+
+    if @issue
+      @issue = @issue.decorate
+    else
+      redirect_via_turbolinks_to(root_url, alert: 'Could not find Issue.')
     end
   end
 
   def add_breadcrumbs
     project = @project || @issue.project
-    add_breadcrumb :index, :projects_path
+    add_breadcrumb t('breadcrumbs.projects.index'), projects_path
     add_breadcrumb project.name, project
   end
 
   def add_create_breadcrumbs
-    add_breadcrumb :new
+    add_breadcrumb :create
   end
 
   def add_update_breadcrumbs
     add_breadcrumb @issue.title_was, @issue
-    add_breadcrumb :edit
+    add_breadcrumb :update
   end
 
   def issue_params

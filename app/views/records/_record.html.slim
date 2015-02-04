@@ -1,0 +1,7 @@
+tr
+  td= record.formatted_worked
+  td= record.formatted_worked_at
+  td
+    = link_to 'Update', edit_record_path(record), class: 'btn btn-default btn-xs'
+    '
+    = link_to 'Destroy', record_path(record), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'

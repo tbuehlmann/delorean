@@ -1,0 +1,12 @@
+= form_for [@issue, @record], html: {role: 'form'} do |f|
+  .form-group
+    = f.label :worked, class: 'control-label'
+    = f.number_field :worked, class: 'form-control', min: 1, step: 1
+    = f.error_span :worked
+
+  .form-group
+    = f.label :worked_at, class: 'control-label'
+    p= f.date_select :worked_at
+    = f.error_span :worked_at
+
+  = f.submit nil, class: 'btn btn-primary'

@@ -20,6 +20,6 @@
           td= project.formatted_created_at
           td= project.formatted_updated_at
           td
-            = link_to 'Edit', edit_project_path(project), class: 'btn btn-default btn-xs'
+            = link_to 'Update', edit_project_path(project), class: 'btn btn-default btn-xs'
             '
             = link_to 'Destroy', project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'

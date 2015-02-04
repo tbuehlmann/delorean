@@ -2,22 +2,23 @@
   h1.toggle-links
     .links.pull-right
       = link_to edit_project_path(@project), class: 'btn btn-default' do
-        = fa_icon('edit lg') + ' Edit'
+        = fa_icon('edit lg') + ' Update'
 
       = link_to project_path(@project), method: 'delete', class: 'btn btn-danger pull-righ', data: {confirm: 'Are you sure?'} do
           = fa_icon('trash-o lg') + ' Destroy'
 
     = @project.name
 
-h3 Issues
+h3#issues Issues
 
 p= link_to 'Create Issue', new_project_issue_path(@project), class: 'btn btn-default'
 
 - if @issues.any?
-  table.table.table-hover#issues
+  table.table.table-hover
     thead
       tr
         th Title
+        th Worked
         th Created
         th Updated
         th Status

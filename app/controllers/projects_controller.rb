@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @issues = @project.issues.decorate
+    @issues = @project.issues.with_worked.decorate
     add_breadcrumb @project.name
   end
 
@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
 
   def add_update_breadcrumbs
     add_breadcrumb @project.name_was, @project
-    add_breadcrumb :edit
+    add_breadcrumb :update
   end
 
   def project_params

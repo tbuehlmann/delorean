@@ -9,10 +9,6 @@
   margin-right: 15px;
 }
 
-#projects, #issues {
-  text-align: center;
-}
-
-.table th {
+.table th, td {
   text-align: center;
 }

@@ -1,9 +1,10 @@
 tr id=dom_id(issue)
   td= link_to issue.title, issue
+  td= issue.formatted_worked
   td= issue.formatted_created_at
   td= issue.formatted_updated_at
   td= issue.status_action
   td
-    = link_to 'Edit', edit_issue_path(issue), class: 'btn btn-default btn-xs'
+    = link_to 'Update', edit_issue_path(issue), class: 'btn btn-default btn-xs'
     '
     = link_to 'Destroy', issue_path(issue), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'

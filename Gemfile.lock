@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/radar/dotiw.git
+  revision: e09bcb369071359418699cd5dd4a2e226df117dc
+  specs:
+    dotiw (2.0)
+      actionpack (>= 3)
+      i18n
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 62854e5129e1a5a24589b3a3849235ca4b794e6f
   specs:
@@ -212,6 +220,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  dotiw!
   draper (~> 1.4)
   font-awesome-rails (= 4.3.0.0)
   hirb
