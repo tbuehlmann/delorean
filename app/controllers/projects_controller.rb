@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :add_breadcrumbs, only: [:new, :create, :show, :edit, :update]
 
   def index
-    @projects = Project.ordered.page(params[:page]).decorate
+    @projects = Project.ordered.decorate
   end
 
   def new
@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @issues = @project.issues.page(params[:page]).decorate
+    @issues = @project.issues.decorate
     add_breadcrumb @project.name
   end
 
